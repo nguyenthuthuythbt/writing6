@@ -505,7 +505,7 @@ function jsonpCfg(){return jsonp(API+'?config=1');}
 async function init(){
  if(API){try{const c=await jsonpCfg();if(c&&c.ok){const keep=CFG.tasks;CFG=Object.assign(CFG,c);if(!c.tasks||!c.tasks.length)CFG.tasks=keep;}}catch(e){}}
  if(Q.get('teacher')==='1'){$('#teacherView').classList.remove('hide');}
- hero();buildCards();$('#foot').textContent='© '+new Date().getFullYear()+' '+(AUTHOR||('Teacher '+teacherName()))+' · Writing Quest'+(CFG.notice?' · '+CFG.notice:'');
+ hero();buildCards();$('#foot').textContent='Created by Nguyen Thi Thu Thuy'+(CFG.notice?' · '+CFG.notice:'');
  $('#grade').onchange=fillUnits;$('#unit').onchange=()=>sync('unit');$('#topic').onchange=()=>sync('topic');fillUnits();
  $('#lv').onclick=e=>{const b=e.target.closest('button');if(!b)return;level=b.dataset.l;document.querySelectorAll('#lv button').forEach(x=>x.classList.toggle('on',x===b));};
  $('#btnStart').onclick=start;$('#btnBack').onclick=()=>{$('#writeView').classList.add('hide');$('#coverView').classList.remove('hide');};
